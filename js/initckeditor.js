@@ -10,7 +10,7 @@ if ( CKEDITOR.env.ie && CKEDITOR.env.version < 9 )
 
 // The trick to keep the editor in the sample quite small
 // unless user specified own height.
-CKEDITOR.config.height = 150;
+//CKEDITOR.config.height = 'auto';
 CKEDITOR.config.width = 'auto';
 
 var initSample = ( function() {
@@ -30,7 +30,13 @@ var initSample = ( function() {
 
 		// Depending on the wysiwygarea plugin availability initialize classic or inline editor.
 		if ( wysiwygareaAvailable ) {
-			CKEDITOR.replace( 'editor' );
+			    CKEDITOR.replace('editor', {
+			      extraPlugins: 'autogrow',
+			      autoGrow_minHeight: 200,
+			      autoGrow_maxHeight: 600,
+			      autoGrow_bottomSpace: 50,
+			      removePlugins: 'resize'
+			    });
 		} else {
 			editorElement.setAttribute( 'contenteditable', 'true' );
 			CKEDITOR.inline( 'editor' );
