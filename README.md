@@ -1,1 +1,1 @@
-# qtwebengine_ckeditor
+How Use CKEditor in QWebEngineView Using Python.
